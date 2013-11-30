@@ -15,52 +15,58 @@
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="css/default.css"/>
-		<script src="js/vendor/require/2.1.9/require.js">			
+		<script src="js/vendor/require/2.1.9/require.js"></script>
+		<script>
+			require.config({
+				baseUrl : "js",
+				paths : {
+					"jquery" : "vendor/jquery/2.0.3/jquery"
+				}
+			});
 		</script>
 		<script>
-		  require.config({
-		    baseUrl: "js",
-		    paths: {
-		        "jquery": "vendor/jquery/2.0.3/jquery"
-		    }
-		  });
-		</script>
-		<script>
-			require(["jquery", "topics"], function($, topics){
+			require(["jquery", "topics"], function($, topics) {
 				$(topics.appendToElement($("nav .topics")));
 			});
-		</script>	</head>
+		</script>
+	</head>
 
 	<body>
-			<header>
-				<h1>Woudzoeker</h1>
-			</header>
-			<nav>
-				<ul id="site-nav">
-					<li><a href="/">Home</a>
+		<header>
+			<h1>Woudzoeker</h1>
+		</header>
+		<nav>
+					<a href="/">Home</a>
+			<ul class="topics">
+			</ul>
+		</nav>
+
+		<div>
+			<div id="search">
+				<ul>
+					<li>
+						Titel:
+						<input type="search" name="titel">
+					</li>
+					<li>
+						Type:
+						<input type="search" name="type">
+					</li>
+					<li>
+						Doelpubliek:
+						<input type="search" name="doelpubliek">
 					</li>
 				</ul>
-				<ul class="topics">
-				</ul>
-			</nav>
-
-			<div>
-				<div id="search">
-					<ul>
-						<li>Titel:<input type="search" name="titel"></li>
-						<li>Type:<input type="search" name="type"></li>
-						<li>Doelpubliek:<input type="search" name="doelpubliek"></li>
-					</ul>
-				</div>	
 			</div>
-			
-			<footer>
-				<p>
-					<a href="/contact">Contact</a>
-				</p>
-				<p>
-					&copy; Copyleft  by xtofl
-				</p>
-			</footer>
+		</div>
+
+		<footer>
+			<p>
+				<a href="/contact">Contact</a>
+			</p>
+			<p>
+				&copy; Copyleft  by xtofl
+			</p>
+		</footer>
 	</body>
 </html>
