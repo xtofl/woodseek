@@ -1,0 +1,24 @@
+body {
+	font-family: Courier;
+	background: black;
+	color: green;
+}
+
+nav {
+	display: inline-block;
+}
+
+nav .topics li {
+    border-radius: 15px;
+  	display: inline-block;
+	overflow: hidden;
+	width: 15em;
+	height: 2em;
+	font-size: +1em;
+	border: solid thick;
+	border-color: green;
+}
+
+nav .topics li:hover {
+	background: lightgreen;
+}
