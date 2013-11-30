@@ -7,40 +7,56 @@
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>search</title>
+		<title>index</title>
 		<meta name="description" content="" />
 		<meta name="author" content="xtofl_2" />
-
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-	</head>
+
+		<script src="js/vendor/require/2.1.9/require.js">			
+		</script>
+		<script>
+		  require.config({
+		    baseUrl: "js",
+		    paths: {
+		        "jquery": "vendor/jquery/2.0.3/jquery"
+		    }
+		  });
+		</script>
+		<script>
+			require(["jquery", "topics"], function($, topics){
+				$(topics.appendToElement($("nav .topics")));
+			});
+		</script>	</head>
 
 	<body>
-		<div>
 			<header>
-				<h1>Search</h1>
+				<h1>Woudzoeker</h1>
 			</header>
 			<nav>
-				<p>
-					<a href="/">Home</a>
-				</p>
-				<p>
-					<a href="/contact">Contact</a>
-				</p>
+				<ul id="site-nav">
+					<li><a href="/">Home</a>
+					</li>
+				</ul>
+				<ul class="topics">
+				</ul>
 			</nav>
 
 			<div>
-
+				<div id="search">
+					<input type="text"></input>
+				</div>	
 			</div>
-
+			
 			<footer>
 				<p>
-					&copy; Copyright  by xtofl_2
+					<a href="/contact">Contact</a>
+				</p>
+				<p>
+					&copy; Copyleft  by xtofl
 				</p>
 			</footer>
-		</div>
 	</body>
 </html>

@@ -10,13 +10,25 @@
 		<title>index</title>
 		<meta name="description" content="" />
 		<meta name="author" content="xtofl_2" />
-
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
-
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="stylesheet" href="css/default.css"/>
+		<script src="js/vendor/require/2.1.9/require.js">			
+		</script>
+		<script>
+		  require.config({
+		    baseUrl: "js",
+		    paths: {
+		        "jquery": "vendor/jquery/2.0.3/jquery"
+		    }
+		  });
+		</script>
+		<script>
+			require(["jquery", "topics"], function($, topics){
+				$(topics.appendToElement($("nav .topics")));
+			});
+		</script>
 	</head>
 
 	<body>
@@ -28,16 +40,7 @@
 					<li><a href="/">Home</a>
 					</li>
 				</ul>
-				<ul class="topics">
-					
-					<li>stress-management</li>
-					<li>leren leren</li>
-					<li>zelfbeeld (diagnose)</li>
-					<li>socio-emotionele ontwikkeling</li>
-					<li>organisatie</li>
-					<li>administratie</li>
-					<li>begeleidingsstrategie</li>
-					<li>leerstoornissen</li>
+				<ul class="topics">					
 				</ul>
 			</nav>
 
