@@ -29,3 +29,8 @@ nav .topics li {
 nav .topics li:hover {
 	background: lightgreen;
 }
+
+#feedback {
+	border-radius: 15px;
+	border: solid 2px;
+}

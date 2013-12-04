@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -7,7 +9,7 @@
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>index</title>
+		<title>Woudzoeker</title>
 		<meta name="description" content="" />
 		<meta name="author" content="xtofl_2" />
 
@@ -58,6 +60,13 @@
 					</li>
 				</ul>
 			</div>
+		</div>
+		
+		<div id="feedback">
+			<ol id="entries">
+				<li>First Found Entry</li>
+				<li>Second Found Entry</li>
+			</ol>
 		</div>
 
 		<footer>
