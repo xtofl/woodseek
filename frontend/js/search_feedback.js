@@ -7,9 +7,10 @@ define(["jquery"],
 		};
 	return {
 		bind: function(inputs, output){
-			$(inputs.typeInput).change(function(){				find(inputs.typeInput.val(), function(results){
+			var onResult =	function(results){
 					output.text(results);
-				});
+			};
+			$(inputs.typeInput).on('keydown', function(){				find(inputs.typeInput.val(), onResult); 
 			});
 		}
 	}
