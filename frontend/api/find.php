@@ -1,41 +1,22 @@
 <?php
-require_once "api.php";
 
-class MyAPI extends API
-{
-    protected $User;
+require_once "../phpincludes/mock_database.php";
 
-    public function __construct($request, $origin) {
-        parent::__construct($request);
+$query = $_GET["keys"] or "all";
 
-        // Abstracted out for example
-        $APIKey = new Models\APIKey();
-        $User = new Models\User();
+$keys = split(",", $query);
 
-        if (!array_key_exists('apiKey', $this->request)) {
-            throw new Exception('No API Key provided');
-        } else if (!$APIKey->verifyKey($this->request['apiKey'], $origin)) {
-            throw new Exception('Invalid API Key');
-        } else if (array_key_exists('token', $this->request) &&
-             !$User->get('token', $this->request['token'])) {
+function json($results) {
+	return "[".join(", \n",$results)."]";
+}
 
-            throw new Exception('Invalid User Token');
-        } else {
 
-        	$this->User = $User;
-		}
-    }
+function find($keys) {
+	$db = articles();
+	$result = $db->articlesForTopics($keys);
+	return $result;
+}
 
-    /**
-     * Example of an Endpoint
-     */
-     protected function example() {
-        if ($this->method == 'GET') {
-            return "Your name is " . $this->User->name;
-        } else {
-            return "Only accepts GET requests";
-        }
-     }
- }
+print(json_encode(find($keys)));
 
 ?>
