@@ -49,12 +49,12 @@
 			<div id="search">
 				<ul>
 					<li>
-						Titel:
-						<input type="search" name="titel">
-					</li>
-					<li>
 						Type:
 						<input type="search" class="type" name="type">
+					</li>
+					<li>
+						Titel:
+						<input type="search" name="titel">
 					</li>
 					<li>
 						Doelpubliek:
