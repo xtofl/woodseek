@@ -30,15 +30,17 @@
 			require(["jquery", "topics"], function($, topics) {
 				$(topics.appendToElement($("nav .topics")));
 			});
+			require(["jquery", "search_feedback"], function($, feedback) {
+				$(feedback.bind({
+					typeInput: $("#search input.type")
+					}, $("#feedback")));
+			});
 		</script>
 	</head>
 
 	<body>
-		<header>
-			<h1>Woudzoeker</h1>
-		</header>
+
 		<nav>
-				<a href="/">Home</a>
 		<ul class="topics">
 			</ul>
 		</nav>
@@ -52,7 +54,7 @@
 					</li>
 					<li>
 						Type:
-						<input type="search" name="type">
+						<input type="search" class="type" name="type">
 					</li>
 					<li>
 						Doelpubliek:

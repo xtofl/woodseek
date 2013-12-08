@@ -28,7 +28,7 @@ class MockDB implements iDatabase {
 		}
 	}
 	public function articles($constraint) {
-		return self::supportedQueries()[$constraint];
+		return null;
 	}
 }
 
