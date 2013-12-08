@@ -28,7 +28,7 @@
 		</script>
 		<script>
 			require(["jquery", "topics"], function($, topics) {
-				$(topics.appendToElement($("nav .topics")));
+				$(topics.appendToElement($("nav .topics"), $("#search input.topics")));
 			});
 			require(["jquery", "search_feedback"], function($, feedback) {
 				$(function(){

@@ -23,9 +23,11 @@ define(["jquery"],
 			var onResult = function(results){
 					output(results);
 			};
-			$(inputs.typeInput).on('keyup', function(){
+			var startSearch = function(){
 				find(inputs.typeInput.val(), onResult); 
-			});
+			};
+			$(inputs.typeInput).on('keyup', startSearch);
+			$(inputs.typeInput).on('change', startSearch);
 		},
 		
 		populateList: function(element) {
