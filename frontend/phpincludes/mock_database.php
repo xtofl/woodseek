@@ -6,18 +6,6 @@ require_once "../phpincludes/database.inc";
 class MockDB implements iDatabase {
 		
 
-	static function supportedQueries() {
-		$supportedqueries = array
-		("SELECT * FROM TABLE 'ARTICLES' WHERE 'ONDERWERP' = 'leerstrategie';"
-		=> $lerenleren
-		
-		,"SELECT * FROM TABLE 'ARTICLES' WHERE 'ONDERWERP' = 'stress-management';"
-		=> $stressmanagement
-		);
-			
-		return $supportedqueries;
-	}
-
 	function articlesForTopics($topics)
 	{
 		$lerenleren = array("lerenleren1", "lerenleren2");

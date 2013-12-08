@@ -33,7 +33,7 @@
 			require(["jquery", "search_feedback"], function($, feedback) {
 				$(feedback.bind({
 					typeInput: $("#search input.topics")
-					}, $("#feedback")));
+					}, feedback.populateList($("#feedback > ol"))));
 			});
 		</script>
 	</head>
