@@ -31,9 +31,12 @@
 				$(topics.appendToElement($("nav .topics")));
 			});
 			require(["jquery", "search_feedback"], function($, feedback) {
-				$(feedback.bind({
+				$(function(){
+					feedback.bind({
 					typeInput: $("#search input.topics")
-					}, feedback.populateList($("#feedback > ol"))));
+					}, feedback.populateList($("#feedback > ol")))
+				});
+				
 			});
 		</script>
 	</head>
