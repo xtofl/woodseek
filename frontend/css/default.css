@@ -28,6 +28,7 @@ nav .topics li {
 
 nav .topics li:hover {
 	background: lightgreen;
+	color: black;
 }
 
 #feedback {
