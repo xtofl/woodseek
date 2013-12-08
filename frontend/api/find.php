@@ -2,21 +2,21 @@
 
 require_once "../phpincludes/mock_database.php";
 
-$query = $_GET["keys"] or "all";
+$query = $_GET["topics"] or "all";
 
-$keys = split(",", $query);
+$topics = split(",", $query);
 
 function json($results) {
 	return "[".join(", \n",$results)."]";
 }
 
 
-function find($keys) {
+function findTopics($topics) {
 	$db = articles();
-	$result = $db->articlesForTopics($keys);
+	$result = $db->articlesForTopics($topics);
 	return $result;
 }
 
-print(json_encode(find($keys)));
+print(json_encode(findTopics($topics)));
 
 ?>
