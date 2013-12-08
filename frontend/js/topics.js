@@ -8,6 +8,7 @@ define(
 	{
 		var createElementForTopic = function(topic) {
 			var element = document.createElement("li");
+			element.className = "topic";
 			element.innerText = topic;
 			return element;
 		};

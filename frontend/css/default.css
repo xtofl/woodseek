@@ -1,5 +1,5 @@
 body {
-	font-family: Courier;
+	font-family: Verdana;
 	background: black;
 	color: green;
 }
@@ -15,15 +15,20 @@ nav {
 	display: inline-block;
 }
 
-nav .topics li {
-    border-radius: 15px;
+nav .topic {
+    border-radius: 2px;
   	display: inline-block;
 	overflow: hidden;
-	width: 10em;
-	height: 2em;
+	width: 5em;
+	height: 5em;
 	font-size: +1em;
+	font-variant: small-caps;
 	border: solid thick;
 	border-color: green;
+	background: green;
+	color: white;
+	text-align: center;
+	margin: 1px;
 }
 
 nav .topics li:hover {
