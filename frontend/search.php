@@ -32,7 +32,7 @@
 			});
 			require(["jquery", "search_feedback"], function($, feedback) {
 				$(feedback.bind({
-					typeInput: $("#search input.type")
+					typeInput: $("#search input.topics")
 					}, $("#feedback")));
 			});
 		</script>
@@ -49,8 +49,8 @@
 			<div id="search">
 				<ul>
 					<li>
-						Type:
-						<input type="search" class="type" name="type">
+						Onderwerp:
+						<input type="search" class="topics">
 					</li>
 					<li>
 						Titel:
