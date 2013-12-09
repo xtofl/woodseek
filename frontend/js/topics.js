@@ -13,7 +13,7 @@ define(
 			element.setAttribute('data-name', topic.id);
 			return element;
 		};
-		var elements = { 
+		var topics = { 
 			forEach: function(f){
 				$.getJSON("api/topics.php", function(data, textStatus, jqXHR){
 					data.forEach(f);
@@ -25,13 +25,13 @@ define(
 			elements: function(){
 				return elements;
 			},
-			appendToElement: function(e, updateSearchElement) {
-				elements.forEach(function(element){
-					var topicElement = createElementForTopic(element);
+			appendToElement: function(containingElement, updateSearchElement) {
+				topics.forEach(function(topic){
+					var topicElement = createElementForTopic(topic);
 					$(topicElement).click(function(){
-						$(updateSearchElement).val(element.id);
+						$(updateSearchElement).val(topic.id).change();
 					});
-					$(e).append(topicElement);
+					$(containingElement).append(topicElement);
 				});
 			}
 	};});
