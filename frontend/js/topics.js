@@ -9,18 +9,17 @@ define(
 		var createElementForTopic = function(topic) {
 			var element = document.createElement("li");
 			element.className = "topic";
-			element.innerText = topic;
-			element.setAttribute('data-name', topic);
+			element.innerText = topic.text;
+			element.setAttribute('data-name', topic.id);
 			return element;
 		};
-		var elements = 
-		["stress-management",
-		"leerstrategie",
-		"zelfbeeld",
-		"socio-emotionele ontwikkeling",
-		"organisatie",
-		"adminstratie",
-		"begeleidingsstrategie"];
+		var elements = { 
+			forEach: function(f){
+				$.getJSON("api/topics.php", function(data, textStatus, jqXHR){
+					data.forEach(f);
+				});
+			}
+		};
 		
 		return {
 			elements: function(){
@@ -30,7 +29,7 @@ define(
 				elements.forEach(function(element){
 					var topicElement = createElementForTopic(element);
 					$(topicElement).click(function(){
-						$(updateSearchElement).val(element);
+						$(updateSearchElement).val(element.id);
 					});
 					$(e).append(topicElement);
 				});
