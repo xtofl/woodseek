@@ -9,7 +9,7 @@ define(
 		var createElementForTopic = function(topic) {
 			var element = document.createElement("li");
 			element.className = "topic";
-			element.innerText = topic.text;
+			element.innerHTML = topic.text;
 			element.setAttribute('data-name', topic.id);
 			return element;
 		};

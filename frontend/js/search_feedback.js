@@ -36,7 +36,9 @@ define(["jquery"],
 				listnode.empty();
 				results.forEach(function(result){
 					var li = document.createElement("li");
-					li.innerText = result;
+					li.innerHTML = "<a href='"+result.url+"'>"+ 
+						result.title + "</a>"+
+						"(voor "+result.audience+"):"+result.description;
 					listnode.append(li);
 				});
 			};

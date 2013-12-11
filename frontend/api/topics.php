@@ -1,5 +1,7 @@
 <?php
 
+require_once "../phpincludes/database.inc";
+
 $topics = array(
 		array("text"=>"stress-management", "id"=>"stress-management"),
 		array("text"=>"leerstrategie", "id"=>"lerenleren"),
