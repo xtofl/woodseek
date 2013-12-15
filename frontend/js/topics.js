@@ -6,9 +6,9 @@ define(
 	["jquery"], 
 	function($)
 	{
-		var createElementForTopic = function(topic) {
+		var createElementForTopic = function(topic, index) {
 			var element = document.createElement("li");
-			element.className = "topic";
+			element.className = "topic "+("n"+(index+1));
 			element.innerHTML = topic.text;
 			element.setAttribute('data-name', topic.id);
 			return element;
@@ -26,8 +26,8 @@ define(
 				return elements;
 			},
 			appendToElement: function(containingElement, updateSearchElement) {
-				topics.forEach(function(topic){
-					var topicElement = createElementForTopic(topic);
+				topics.forEach(function(topic, index){
+					var topicElement = createElementForTopic(topic, index);
 					$(topicElement).click(function(){
 						$(updateSearchElement).val(topic.id).change();
 					});
