@@ -4,6 +4,23 @@ body {
 	color: green;
 }
 
+.wizard_container {
+	width: 500px;
+	overflow: hidden;
+}
+.wizard {
+	width: 10000px;
+	border: solid red;	
+}
+
+.wizard .step {
+	display: inline-block;
+	float: left;
+	border: solid orange;
+	width: 400px;
+	height: 200px;
+}
+
 header h1 {
 	margin-bottom: 0;
 	border-bottom: 0;

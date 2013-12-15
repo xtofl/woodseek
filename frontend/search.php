@@ -16,7 +16,13 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="stylesheet" href="css/default.css"/>
+		<?php
+		$style='default';
+		if (key_exists('style', $_GET)) {
+			$style=$_GET['style'].'.css';
+		}
+		print("<link rel='stylesheet' href='css/${style}.css'/>");
+		?>
 		<script src="js/vendor/require/2.1.9/require.js"></script>
 		<script>
 			require.config({
@@ -30,47 +36,55 @@
 			require(["jquery", "topics"], function($, topics) {
 				$(topics.appendToElement($("nav .topics"), $("#search input.topics")));
 			});
-			require(["jquery", "search_feedback"], function($, feedback) {
-				$(function(){
+			require(["jquery", "search_feedback", "sliding"], function($, feedback, sliding) {
+				$(function() {
 					feedback.bind({
-					typeInput: $("#search input.topics")
-					}, feedback.populateList($("#feedback > ol")))
+						typeInput : $("#search input.topics")
+					}, feedback.populateList($("#feedback > ol")));
+					sliding($("li"));
 				});
-				
+
 			});
 		</script>
 	</head>
 
 	<body>
 
-		<nav>
-		<ul class="topics">
-			</ul>
-		</nav>
+		<div class="wizard_container">
+			<div class="wizard">
 
-		<div>
-			<div id="search">
-				<ul>
-					<li>
-						Onderwerp:
-						<input type="search" class="topics">
-					</li>
-					<li>
-						Titel:
-						<input type="search" name="titel">
-					</li>
-					<li>
-						Doelpubliek:
-						<input type="search" name="doelpubliek">
-					</li>
-				</ul>
+				<nav class="step">
+					<ul class="topics"></ul>
+				</nav>
+
+				<div class="step">
+					<div id="search">
+						<ul>
+							<li>
+								Onderwerp:
+								<input type="search" class="topics">
+							</li>
+							<li>
+								Titel:
+								<input type="search" name="titel">
+							</li>
+							<li>
+								Doelpubliek:
+								<input type="search" name="doelpubliek">
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
-		
 		<div id="feedback">
 			<ol id="entries">
-				<li>First Found Entry</li>
-				<li>Second Found Entry</li>
+				<li>
+					First Found Entry
+				</li>
+				<li>
+					Second Found Entry
+				</li>
 			</ol>
 		</div>
 
