@@ -1,0 +1,43 @@
+
+.topic {
+    border-radius: 2px;
+  	display: inline-block;
+	overflow: hidden;
+	width: 5em;
+	height: 5em;
+	font-size: +1em;
+	font-variant: small-caps;
+	border: solid thick;
+	color: white;
+	text-align: center;
+	margin: 1px;
+}
+
+.topics li:hover {
+	color: black;
+}
+
+.topic.n1 {
+	background-color: red;
+}
+
+.topic.n2 {
+	background-color: orange;
+}
+
+.topic.n3 {
+	background-color: yellow;
+}
+
+.topic.n4 {
+	background-color: green;
+}
+
+.topic.n5 {
+	background-color: blue;
+}
+
+.topic.n6 {
+	background-color: violet;
+}
+

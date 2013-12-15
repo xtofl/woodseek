@@ -16,13 +16,10 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<?php
-		$style='default';
-		if (key_exists('style', $_GET)) {
-			$style=$_GET['style'].'.css';
-		}
-		print("<link rel='stylesheet' href='css/${style}.css'/>");
-		?>
+		
+		<link rel='stylesheet' href='css/default.css'/>
+		<link rel='stylesheet' href='css/topics.css'/>
+		
 		<script src="js/vendor/require/2.1.9/require.js"></script>
 		<script>
 			require.config({
