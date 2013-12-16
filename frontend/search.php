@@ -26,7 +26,7 @@
 				baseUrl : "js",
 				paths : {
 					"jquery" : "vendor/jquery/2.0.3/jquery",
-					"touchswipe" :"vendor/touchswipe/jquery.touchSwipe.min.js"
+					"touchswipe" :"vendor/touchswipe/1.6.4/jquery.touchSwipe"
 				}
 			});
 		</script>
@@ -40,6 +40,7 @@
 							sliding.slideOnClick(element, wizardElement);
 						}
 					);
+					sliding.makeSwipable(wizardElement);
 					feedback.bind({
 						typeInput : $("#search input.topics")
 					}, feedback.populateList($("#feedback > ol")));

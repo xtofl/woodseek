@@ -1,15 +1,26 @@
-define(["jquery"],
-function($){
+define(["jquery", "touchswipe"], function($, touchswipe) {
 
 	return {
-		slideOnClick: function(clickelementsToSlide, wizard){
+		slideOnClick : function(clickelementsToSlide, wizard) {
 			var e = $(clickelementsToSlide);
-			e.on('click', function(){
+			e.on('click', function() {
 				$(wizard).css("transform", "translateX(" + -300 + "px)");
-			});	
+			});
 		},
-		makeSwipable: function() {
-			
+		makeSwipable : function(element) {
+			$(element).swipe({
+				swipe : function(event, direction, distance, duration, fingerCount) {
+					switch(direction) {
+						case 'left':
+							$(element).css("transform", "translateX(" + -distance + "px)");
+						break;
+						case 'right':
+							$(element).css("transform", "translateX(" + distance + "px)");
+						break;
+					}
+				
+				}
+			});
 		}
 	};
 });
