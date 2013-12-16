@@ -5,19 +5,19 @@ body {
 }
 
 .wizard_container {
-	width: 500px;
+	width: 600px;
 	overflow: hidden;
 }
 .wizard {
 	width: 10000px;
-	border: solid red;	
+
 	transition: all 0.7s ease-in-out;
 }
 
 .wizard .step {
 	display: inline-block;
 	float: left;
-	border: solid orange;
+
 	width: 400px;
 	height: 200px;
 }
