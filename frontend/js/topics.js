@@ -11,6 +11,9 @@ define(
 			element.className = "topic "+("n"+(index+1));
 			element.innerHTML = topic.text;
 			element.setAttribute('data-name', topic.id);
+			element.style.backgroundImage = "url("+topic.icon+")";
+			element.style.backgroundPosition = "bottom";
+			element.style.backgroundRepeat = "no-repeat";
 			return element;
 		};
 		var topics = { 
