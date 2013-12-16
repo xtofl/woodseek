@@ -8,17 +8,17 @@ define(["jquery", "touchswipe"], function($, touchswipe) {
 			});
 		},
 		makeSwipable : function(element) {
-			var slideRight = function(element, pixelsToTheRight) {
+			var slideRight = function(pixelsToTheRight) {
 				$(element).css("transform", "translateX(" + pixelsToTheRight + "px)");		
 			};
 			$(element).swipe({
 				swipe : function(event, direction, distance, duration, fingerCount) {
 					switch(direction) {
 						case 'left':
-							slideRight(element, -distance);
+							slideRight(-distance);
 						break;
 						case 'right':
-							slideRight(element, distance);
+							slideRight(distance);
 						break;
 					}
 				
