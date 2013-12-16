@@ -25,7 +25,8 @@
 			require.config({
 				baseUrl : "js",
 				paths : {
-					"jquery" : "vendor/jquery/2.0.3/jquery"
+					"jquery" : "vendor/jquery/2.0.3/jquery",
+					"touchswipe" :"vendor/touchswipe/jquery.touchSwipe.min.js"
 				}
 			});
 		</script>
@@ -36,7 +37,7 @@
 					var wizardElement = $("#wizard");
 					topics.appendToElement($("nav .topics"), $("#search input.topics"),
 						function(element){
-							sliding(element, wizardElement);
+							sliding.slideOnClick(element, wizardElement);
 						}
 					);
 					feedback.bind({
