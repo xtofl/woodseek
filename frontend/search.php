@@ -30,15 +30,18 @@
 			});
 		</script>
 		<script>
-			require(["jquery", "topics"], function($, topics) {
-				$(topics.appendToElement($("nav .topics"), $("#search input.topics")));
-			});
-			require(["jquery", "search_feedback", "sliding"], function($, feedback, sliding) {
+			require(["jquery", "topics", "search_feedback", "sliding"], 
+			function($, topics, feedback, sliding) {
 				$(function() {
+					var wizardElement = $("#wizard");
+					topics.appendToElement($("nav .topics"), $("#search input.topics"),
+						function(element){
+							sliding(element, wizardElement);
+						}
+					);
 					feedback.bind({
 						typeInput : $("#search input.topics")
 					}, feedback.populateList($("#feedback > ol")));
-					sliding($("li"));
 				});
 
 			});
@@ -48,7 +51,7 @@
 	<body>
 
 		<div class="wizard_container">
-			<div class="wizard">
+			<div id="wizard" class="wizard">
 
 				<nav class="step">
 					<ul class="topics"></ul>

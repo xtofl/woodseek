@@ -25,13 +25,14 @@ define(
 			elements: function(){
 				return elements;
 			},
-			appendToElement: function(containingElement, updateSearchElement) {
+			appendToElement: function(containingElement, updateSearchElement, andThenWithElement) {
 				topics.forEach(function(topic, index){
 					var topicElement = createElementForTopic(topic, index);
 					$(topicElement).click(function(){
 						$(updateSearchElement).val(topic.id).change();
 					});
 					$(containingElement).append(topicElement);
+					andThenWithElement(topicElement);
 				});
 			}
 	};});
