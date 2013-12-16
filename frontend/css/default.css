@@ -11,6 +11,7 @@ body {
 .wizard {
 	width: 10000px;
 	border: solid red;	
+	transition: all 0.7s ease-in-out;
 }
 
 .wizard .step {
