@@ -21,10 +21,22 @@ function search(query: Query): enumerable<Article>
 //  * internal error (disk full, invalid path)
 function add(article: Article): void
 
+union Query: 
+	AttributeContains(caseSensitive=false) |
+	AttributeBetween(Begin, End, Inclusion{beginIncluded, endIncluded}={true, true}) |
+	Or(list<Query>) | And(list<Query>) | Not(Query)
+
+struct AttributeEquals
+{
+	attribute: Attribute;
+	argument: string;
+}
+
 struct Topic
 {
-	name: string;
-	pictogram: url;
+	id: string; // identifier
+	name: string; // representation in Dutch
+	icon: url;
 }
  
 struct Article
