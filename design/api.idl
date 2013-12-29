@@ -1,0 +1,73 @@
+// this file contains the API of the woodsearch application
+
+
+// returns the available topics
+function topics(): enumerable<Topic>
+
+// returns the available audiences
+function audiences(): enumerable<Audience>
+
+// returns the available Shapes
+function shapes(): enumerable<Shape>
+
+// returns all Articles conforming query
+// may throw if
+//  * internal error
+function search(query: Query): enumerable<Article>
+
+// no result if succeeds
+// may throw if 
+//  * article with same identifier already exists
+//  * internal error (disk full, invalid path)
+function add(article: Article): void
+
+struct Topic
+{
+	name: string;
+	pictogram: url;
+}
+ 
+struct Article
+{
+	content: url;
+	description: Description;
+}
+
+struct Description
+{
+	audience: Audience;
+	topic: Topic;
+	description: string; // brief!
+	author: list<Person>;
+	maintainer: Person;
+	creation: DateTime;
+	form: Form;
+}
+
+struct Person
+{
+	name: string;
+	email: list<Email>;
+	phone: list<Phone>;
+}
+
+// an article can cover one or more predefined topics
+struct Topic
+{
+	name: string;
+	pictogram: url;
+}
+
+// an article is targeted to one or more audiences
+struct Audience
+{
+	name: string;
+}
+
+// the shape an article is in
+// (printout, movie, slideshow, ...)
+struct Shape
+{
+	name: string;
+	mimetype: optional<string>;
+}
