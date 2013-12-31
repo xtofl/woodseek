@@ -21,9 +21,15 @@ function search(query: Query): enumerable<Article>
 //  * internal error (disk full, invalid path)
 function add(article: Article): void
 
+struct Endpoint<T>
+{
+	value: T;
+	included: bool = true;
+}
+
 union Query: 
-	AttributeContains(caseSensitive=false) |
-	AttributeBetween(Begin, End, Inclusion{beginIncluded, endIncluded}={true, true}) |
+	AttributeContains<T>(value: T, caseSensitive=false) |
+	AttributeBetween<T>(begin: Endpoint<T>, end: Endpoint<T>) |
 	Or(list<Query>) | And(list<Query>) | Not(Query)
 
 struct AttributeEquals
