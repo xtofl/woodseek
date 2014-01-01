@@ -19,17 +19,28 @@ class U {
 		$this->type = $type; 
 	}
 }
-class U__A {
+class U__A__Arg__Barg {
 	public __construct(Arg $a, Barg $b) {
-		parent::__construct("U__A");
+		parent::__construct("U.A(Arg, Barg)");
 		$this->a == $a; $this->b == $b;
 	}
 }
-class U__B {
+class U__B__Carg {
 	public __construct(Carg $c) { 
-		parent::__construct("U__B");
+		parent::__construct("U.B(Carg)");
 		$this->c == $c; 
 	}
+}
+
+(implementation aid:)
+switch u: U:
+	A(argA: Arg, argB: Barg): f(argA, argB);
+	B(argC: Carg) as b: g(b);
+=>
+switch($u->type) {
+	case "U.A(Arg,Barg)": f($u->a, $u->b); break;
+	case "U.B(Carg)": g($u); break;
+	default: die("union contains unknown element: ".$u->type);
 }
 
 list<T> => array
