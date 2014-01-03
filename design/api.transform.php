@@ -21,13 +21,13 @@ class U {
 }
 class U__A__Arg__Barg {
 	public __construct(Arg $a, Barg $b) {
-		parent::__construct("U.A(Arg, Barg)");
+		parent::__construct("A(Arg, Barg)");
 		$this->a == $a; $this->b == $b;
 	}
 }
 class U__B__Carg {
 	public __construct(Carg $c) { 
-		parent::__construct("U.B(Carg)");
+		parent::__construct("B(Carg)");
 		$this->c == $c; 
 	}
 }
@@ -38,9 +38,9 @@ switch u: U:
 	B(argC: Carg) as b: g(b);
 =>
 switch($u->type) {
-	case "U.A(Arg,Barg)": f($u->a, $u->b); break;
-	case "U.B(Carg)": g($u); break;
-	default: die("union contains unknown element: ".$u->type);
+	case "A(Arg,Barg)": f($u->a, $u->b); break;
+	case "B(Carg)": g($u); break;
+	default: die("union U does not contain element: ".$u->type);
 }
 
 list<T> => array

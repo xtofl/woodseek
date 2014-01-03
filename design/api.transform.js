@@ -32,7 +32,7 @@ switch u: U:
 switch(u.type) {
 	case "A(Arg,Barg)": f(u.a, u.b); break;
 	case "B(Carg)": g(u); break;
-	default: throw {message: "union contains unknown element: "+u.type};
+	default: throw {message: "union U does not contain element "+u.type};
 }
 
 list<T> => array
