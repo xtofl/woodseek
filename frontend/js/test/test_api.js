@@ -18,7 +18,7 @@ require(
 		};
 		api.connect(mock);
 		
-		equal(mock.async.call.url, "topics", "async Topics was called");
+		equal(mock.async.call.url, "api/topics.php", "async Topics was called");
 		
 		mock.async.call.f([1,2,3]);
 		deepEqual(api.topics(), [1,2,3], "When backend returns topics, they should be remembered");
