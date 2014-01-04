@@ -8,7 +8,7 @@ define([], function(){
 	};
 	return {
 		connect: function(proxy) {
-			proxy.asyncTopics(function(topics){ state.topics = topics; });
+			proxy.async("topics", function(topics){ state.topics = topics; });
 		},
 		topics: function() {
 			return state.topics;

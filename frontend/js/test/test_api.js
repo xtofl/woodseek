@@ -12,15 +12,15 @@ require(
 	
 	test("After Connection", function() {
 		var mock = {
-				asyncTopics: function(f) {
-					mock.asyncTopics.call = { f: f };
+				async: function(url, f) {
+					mock.async.call = { url: url, f: f };
 				}
 		};
 		api.connect(mock);
 		
-		ok(mock.asyncTopics.call, "asyncTopics was called");
+		equal(mock.async.call.url, "topics", "async Topics was called");
 		
-		mock.asyncTopics.call.f([1,2,3]);
+		mock.async.call.f([1,2,3]);
 		deepEqual(api.topics(), [1,2,3], "When backend returns topics, they should be remembered");
 	});
 });
