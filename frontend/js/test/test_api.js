@@ -28,6 +28,6 @@ require(
 		var q = api.query.attribute_contains("attributename", "val");
 		equal(q.type, "AttributeContains(Attribute, AttributePart)", "correct type is created");
 		equal(q.attribute, "attributename", "correct attribute name is stored");
-		equal(q.part, "val", "correct part is stored");
+		equal(q.attributePart, "val", "correct part is stored");
 	});
 });

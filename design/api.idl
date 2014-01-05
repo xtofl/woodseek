@@ -28,14 +28,19 @@ struct Endpoint<T>
 }
 
 union Query: 
-	AttributeContains<T>(value: T, caseSensitive=false) |
+	AttributeContains<T>(attribute: Attribute<T>, attributePart: AttributePart<T>) |
 	AttributeBetween<T>(begin: Endpoint<T>, end: Endpoint<T>) |
 	Or(list<Query>) | And(list<Query>) | Not(Query)
 
-struct AttributeEquals
+struct Attribute<T>
 {
-	attribute: Attribute;
-	argument: string;
+	string name;
+	static ValueType: type = list<T>;
+}
+
+struct AttributePart<T>
+{
+	value: regexp<T>;
 }
 
 struct Topic

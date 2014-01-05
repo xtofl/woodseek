@@ -24,7 +24,7 @@ define([], function(){
 				return { 
 					type: "AttributeContains(Attribute, AttributePart)",
 					attribute: attribute,
-					part: part
+					attributePart: part
 					};
 			}
 		}
