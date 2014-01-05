@@ -32,7 +32,11 @@
 	</head>
 
 	<body>
-		<ul data-bind="foreach: topics"><li class="topic"><span data-bind="text: text"></span></li></ul>
+		<ul data-bind="foreach: topics">
+			<li class="topic">
+				<span data-bind="text: text"></span>
+			</li>
+		</ul>
 		<div class="wizard_container">
 			<div id="wizard" class="wizard">
 

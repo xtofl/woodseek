@@ -5,7 +5,7 @@ define([ "jquery" ], function($) {
 				datatype : "json",
 				url : url,
 				success : function(data, textStatus, jsXHR) {
-					callback(data);
+					callback(JSON.parse(data));
 				},
 				error : function(jqXHR, textStatus, errorThrown) {
 					console.error("ajax request '" + url + "': " + textStatus);
