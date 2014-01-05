@@ -23,4 +23,11 @@ require(
 		mock.async.call.f([1,2,3]);
 		deepEqual(api.topics(), [1,2,3], "When backend returns topics, they should be remembered");
 	});
+	
+	test("Query Creation", function() {
+		var q = api.query.attribute_contains("attributename", "val");
+		equal(q.type, "AttributeContains(Attribute, AttributePart)", "correct type is created");
+		equal(q.attribute, "attributename", "correct attribute name is stored");
+		equal(q.part, "val", "correct part is stored");
+	});
 });

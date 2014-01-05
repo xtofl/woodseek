@@ -18,6 +18,15 @@ define([], function(){
 		},
 		shapes: function() {
 			return state.shapes;
+		},
+		query: {
+			attribute_contains: function(attribute, part){
+				return { 
+					type: "AttributeContains(Attribute, AttributePart)",
+					attribute: attribute,
+					part: part
+					};
+			}
 		}
 	};
 });
