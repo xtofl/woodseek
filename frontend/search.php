@@ -22,32 +22,22 @@
 
 		<?php include_once("phpincludes/scripts.inc");?>
 		<script>
-			require(["jquery", "topics", "search_feedback", "sliding"], 
-			function($, topics, feedback, sliding) {
-				$(function() {
-					var wizardElement = $("#wizard");
-					topics.appendToElement($("nav .topics"), $("#search input.topics"),
-						function(element){
-							sliding.slideOnClick(element, wizardElement);
-						}
-					);
-					sliding.makeSwipable(wizardElement);
-					feedback.bind({
-						typeInput : $("#search input.topics")
-					}, feedback.populateList($("#feedback > ol")));
+			require(["jquery", "knockout", "knockoutmodel"], function($, ko, komodel){
+				$(function(){
+					var model = komodel.create();
+					ko.applyBindings(model);
 				});
-
 			});
 		</script>
 	</head>
 
 	<body>
-
+		<ul data-bind="foreach: topics"><li class="topic"><span data-bind="text: text"></span></li></ul>
 		<div class="wizard_container">
 			<div id="wizard" class="wizard">
 
 				<nav class="step">
-					<ul class="topics"></ul>
+					<ul class="topics" data-bind="topics"></ul>
 				</nav>
 
 				<div class="step">
