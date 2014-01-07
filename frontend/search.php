@@ -38,15 +38,20 @@
 
 			<nav class="step">
 				<ul data-bind="foreach: topics">
-					<li class="topic"><button
-						data-bind="text: text, 
-						click: $parent.currentTopic($data),
-					css: className,
-					style: {
-						backgroundImage: icon,
-						backgroundPosition: 'bottom',
-						backgroundRepeat: 'no-repeat'
-					}"></button></li>
+					<li class="topic">
+						<button
+							data-bind="
+								text: text, 
+								click: $parent.currentTopic($data),
+								css: 'topic '+className(),
+								style: {
+									backgroundPosition: 'bottom',
+									backgroundImage: icon,
+									backgroundRepeat: 'no-repeat'
+								}
+							">
+						</button>
+					</li>
 				</ul>
 			</nav>
 
@@ -66,7 +71,12 @@
 	</div>
 	<div id="feedback">
 		<ol id="entries" data-bind="foreach: results">
-			<li data-bind="text: title"></li>
+			<li>
+				<a data-bind="attr: {href: url}"><span data-bind="text: title"></span></a>
+				(voor <span data-bind="text: audience"></span>)
+				:
+				<span data-bind="text: description"></span>
+			</li>
 		</ol>
 	</div>
 

@@ -17,27 +17,31 @@
 	color: black;
 }
 
-.topic.n1 {
+.topic .n1 {
 	background-color: red;
 }
 
-.topic.n2 {
+.topic .n2 {
 	background-color: orange;
 }
 
-.topic.n3 {
+.topic .n3 {
 	background-color: yellow;
 }
 
-.topic.n4 {
+.topic .n4 {
 	background-color: green;
 }
 
-.topic.n5 {
+.topic .n5 {
 	background-color: blue;
 }
 
-.topic.n6 {
+.topic .n6 {
 	background-color: violet;
+}
+
+.topic .n7 {
+	background-color: purple;
 }
 
