@@ -2,23 +2,23 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
+<head>
+<meta charset="utf-8" />
 
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>Woudzoeker</title>
-		<meta name="description" content="" />
-		<meta name="author" content="xtofl_2" />
+<title>Woudzoeker</title>
+<meta name="description" content="" />
+<meta name="author" content="xtofl_2" />
 
-		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
-		<link rel="shortcut icon" href="/favicon.ico" />
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		
-		<link rel='stylesheet' href='css/default.css'/>
-		<link rel='stylesheet' href='css/topics.css'/>
+<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<link rel='stylesheet' href='css/default.css' />
+<link rel='stylesheet' href='css/topics.css' />
 
 		<?php include_once("phpincludes/scripts.inc");?>
 		<script>
@@ -29,59 +29,52 @@
 				});
 			});
 		</script>
-	</head>
+</head>
 
-	<body>
-		<ul data-bind="foreach: topics">
-			<li class="topic">
-				<span data-bind="text: text"></span>
-			</li>
-		</ul>
-		<div class="wizard_container">
-			<div id="wizard" class="wizard">
+<body>
 
-				<nav class="step">
-					<ul class="topics" data-bind="topics"></ul>
-				</nav>
+	<div class="wizard_container">
+		<div id="wizard" class="wizard">
 
-				<div class="step">
-					<div id="search">
-						<ul>
-							<li>
-								Onderwerp:
-								<input type="search" class="topics">
-							</li>
-							<li>
-								Titel:
-								<input type="search" name="titel">
-							</li>
-							<li>
-								Doelpubliek:
-								<input type="search" name="doelpubliek">
-							</li>
-						</ul>
-					</div>
+			<nav class="step">
+				<ul data-bind="foreach: topics">
+					<li class="topic"><button
+						data-bind="text: text, 
+						click: $parent.currentTopic($data),
+					css: className,
+					style: {
+						backgroundImage: icon,
+						backgroundPosition: 'bottom',
+						backgroundRepeat: 'no-repeat'
+					}"></button></li>
+				</ul>
+			</nav>
+
+			<div class="step">
+				<div id="search">
+					<ul>
+						<li>Onderwerp: <input type="search" class="topics" data-bind="value: currentTopic()?currentTopic().id:''">
+						</li>
+						<li>Titel: <input type="search" name="titel">
+						</li>
+						<li>Doelpubliek: <input type="search" name="doelpubliek">
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-		<div id="feedback">
-			<ol id="entries">
-				<li>
-					First Found Entry
-				</li>
-				<li>
-					Second Found Entry
-				</li>
-			</ol>
-		</div>
+	</div>
+	<div id="feedback">
+		<ol id="entries" data-bind="foreach: results">
+			<li data-bind="text: title"></li>
+		</ol>
+	</div>
 
-		<footer>
-			<p>
-				<a href="/contact">Contact</a>
-			</p>
-			<p>
-				&copy; Copyleft  by xtofl
-			</p>
-		</footer>
-	</body>
+	<footer>
+		<p>
+			<a href="/contact">Contact</a>
+		</p>
+		<p>&copy; Copyleft by xtofl</p>
+	</footer>
+</body>
 </html>
